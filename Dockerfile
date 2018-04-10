@@ -8,6 +8,10 @@ LABEL maintainer "Bezeklik"
 
 RUN yum --assumeyes install https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm && \
     yum --assumeyes install mysql-community-server && \
+    sed -i '/\[mysqld\]/a slow_query_log=1\nlong_query_time=1\nlog_queries_not_using_indexes=1' /etc/my.cnf && \
+    touch /var/log/mysqld-slow.log && \
+    chown mysql. /var/log/mysqld-slow.log && \
+    sed -i '/\[mysqld\]/a character-set-server=utf8mb4\ncollation-server=utf8mb4_bin' /etc/my.cnf && \
     mkdir /docker-entrypoint-initdb.d
 
 VOLUME /var/lib/mysql
