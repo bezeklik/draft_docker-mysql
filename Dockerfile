@@ -18,10 +18,10 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 COPY healthcheck.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/healthcheck.sh /healthcheck.sh
-HEALTHCHECK --interval=10s &&
-            --timeout=3s &&
-            --start-period=5s &&
-            --retries=5 &&
+HEALTHCHECK --interval=10s \
+            --timeout=3s \
+            --start-period=5s \
+            --retries=5 \
             CMD /healthcheck.sh
 
 EXPOSE 3306
