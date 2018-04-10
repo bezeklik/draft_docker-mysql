@@ -13,11 +13,11 @@ RUN yum --assumeyes install https://dev.mysql.com/get/mysql57-community-release-
 VOLUME /var/lib/mysql
 
 COPY entrypoint.sh /usr/local/bin/
-RUN ln -s usr/local/bin/entrypoint.sh /entrypoint.sh
+RUN ln -s /usr/local/bin/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
 
 COPY healthcheck.sh /usr/local/bin/
-RUN ln -s usr/local/bin/healthcheck.sh /healthcheck.sh
+RUN ln -s /usr/local/bin/healthcheck.sh /healthcheck.sh
 HEALTHCHECK --interval=10s &&
             --timeout=3s &&
             --start-period=5s &&
