@@ -8,10 +8,19 @@ LABEL maintainer "Bezeklik"
 
 RUN yum --assumeyes install https://dev.mysql.com/get/mysql57-community-release-el7-11.noarch.rpm && \
     yum --assumeyes install mysql-community-server && \
-    sed -i '/\[mysqld\]/a slow_query_log=1\nlong_query_time=1\nlog_queries_not_using_indexes=1' /etc/my.cnf && \
+    echo -e '\ncharacter-set-server=utf8mb4' >> /etc/my.cnf && \
+    echo -e 'collation-server=utf8mb4_bin' >> /etc/my.cnf && \
+    echo -e '\nslow_query_log=ON' >> /etc/my.cnf && \
+    echo -e 'slow_query_log_file=/var/log/mysqld-slow.log' >> /etc/my.cnf && \
+    echo -e 'long_query_time=1' >> /etc/my.cnf && \
+    echo -e 'log_queries_not_using_indexes=ON' >> /etc/my.cnf && \
     touch /var/log/mysqld-slow.log && \
-    chown mysql. /var/log/mysqld-slow.log && \
-    sed -i '/\[mysqld\]/a character-set-server=utf8mb4\ncollation-server=utf8mb4_bin' /etc/my.cnf && \
+    chown mysql:mysql /var/log/mysqld-slow.log && \
+    chcon -t mysqld_log_t /var/log/mysqld-slow.log && \
+    echo -e '[mysql]' >> ~/.my.cnf && \
+    echo -e 'default-character-set=utf8mb4' >> ~/.my.cnf && \
+    echo -e 'pager=less -SFXin' >> ~/.my.cnf && \
+    mysqld --initialize-insecure --user=mysql && \
     mkdir /docker-entrypoint-initdb.d
 
 VOLUME /var/lib/mysql
