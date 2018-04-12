@@ -73,7 +73,7 @@ if [ "$1" = 'mysqld' ]; then
 
 		if [ ! -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
 			export MYSQL_ROOT_PASSWORD="$(pwmake 128)"
-			echo "[Entrypoint] GENERATED ROOT PASSWORD: $MYSQL_ROOT_PASSWORD"
+			echo "[Entrypoint] GENERATED ROOT PASSWORD: ${MYSQL_ROOT_PASSWORD}"
 		fi
 
 		if [ -z "$MYSQL_ROOT_HOST" ]; then
@@ -81,7 +81,7 @@ if [ "$1" = 'mysqld' ]; then
 		fi
 
 		if [ "$MYSQL_DATABASE" ]; then
-			echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\`;" | "${mysql[@]}"
+			echo "CREATE DATABASE IF NOT EXISTS \`${MYSQL_DATABASE}\`;" | "${mysql[@]}"
 			mysql+=( "$MYSQL_DATABASE" )
 		fi
 
