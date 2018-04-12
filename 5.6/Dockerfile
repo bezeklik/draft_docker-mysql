@@ -25,7 +25,7 @@ RUN yum --assumeyes install https://dev.mysql.com/get/mysql57-community-release-
     echo -e '[mysql]' >> ~/.my.cnf && \
     echo -e 'default-character-set=utf8mb4' >> ~/.my.cnf && \
     echo -e 'pager=less -SFXin' >> ~/.my.cnf && \
-    mysqld --initialize-insecure --user=mysql && \
+    mysql_install_db --user=mysql --rpm --keep-my-cnf && \
     mkdir /docker-entrypoint-initdb.d
 
 VOLUME /var/lib/mysql
