@@ -37,6 +37,7 @@ HEALTHCHECK --interval=10s \
             --retries=5 \
             CMD /healthcheck.sh
 
-EXPOSE 3306
+# 33060 is the default port for the mysqlx plugin, new to 5.7
+EXPOSE 3306 33060
 
 CMD ["mysqld", "--character-set-server=utf8mb4", "--collation-server=utf8mb4_bin"]
