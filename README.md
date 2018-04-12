@@ -30,7 +30,7 @@ https://github.com/bezeklik/docker-mysql/issues
 
 - **Supported Docker versions:**
 
-# What is MySQL?
+# Difference from the official image
 
 # How to use this image
 
