@@ -12,6 +12,9 @@ RUN yum --assumeyes install https://dev.mysql.com/get/mysql57-community-release-
     yum --assumeyes install mysql-community-server && \
     echo -e '\ncharacter-set-server=utf8mb4' >> /etc/my.cnf && \
     echo -e 'collation-server=utf8mb4_bin' >> /etc/my.cnf && \
+    echo -e 'innodb_large_prefix=ON' >> /etc/my.cnf && \
+    echo -e 'innodb_file_format=Barracuda' >> /etc/my.cnf && \
+    echo -e 'innodb_file_format_max=Barracuda' >> /etc/my.cnf && \
     echo -e '\nslow_query_log=ON' >> /etc/my.cnf && \
     echo -e 'slow_query_log_file=/var/log/mysqld-slow.log' >> /etc/my.cnf && \
     echo -e 'long_query_time=1' >> /etc/my.cnf && \
