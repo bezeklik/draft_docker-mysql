@@ -1,5 +1,6 @@
 # This code was in reference to the following official images.
 # https://github.com/mysql/mysql-docker/blob/mysql-server/5.7/Dockerfile
+# https://github.com/mysql/mysql-docker/blob/mysql-server/genOracleLinux.sh
 # https://github.com/docker-library/mysql/blob/master/5.7/Dockerfile
 # https://github.com/docker-library/healthcheck/blob/master/mysql/Dockerfile
 
