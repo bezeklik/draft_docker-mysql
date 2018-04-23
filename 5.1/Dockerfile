@@ -14,7 +14,11 @@ RUN yum --assumeyes install mysql-server && \
     echo -e '[mysql]' >> ~/.my.cnf && \
     echo -e 'default-character-set=utf8' >> ~/.my.cnf && \
     echo -e 'pager=less -SFXin' >> ~/.my.cnf && \
+    # http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-install-db.html
+    # http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-install-db-problems
     mysql_install_db --user=mysql --rpm && \
+    # http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-tzinfo-to-sql.html
+    # https://bugs.mysql.com/bug.php?id=20545
     mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/FCTY/' | mysql mysql && \
     mkdir /docker-entrypoint-initdb.d
 
@@ -34,4 +38,5 @@ HEALTHCHECK --interval=10s \
 
 EXPOSE 3306
 
-CMD ["mysqld_safe", "--user=mysql"]
+# http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysqld-safe.html
+CMD ["mysqld_safe"]
