@@ -5,7 +5,7 @@ RUN yum --assumeyes install mysql-server && \
     echo -e '\ncharacter-set-server=utf8' >> /etc/my.cnf && \
     echo -e 'collation-server=utf8_bin' >> /etc/my.cnf && \
     echo -e '\nslow_query_log=ON' >> /etc/my.cnf && \
-    echo -e 'slow_query_log_file=/var/log/mysqld-slow.log' >> /etc/my.cnf && \
+#    echo -e 'slow_query_log_file=/var/run/mysqld/mysqld-slow.log' >> /etc/my.cnf && \
     echo -e 'long_query_time=1' >> /etc/my.cnf && \
     echo -e 'log_queries_not_using_indexes=ON' >> /etc/my.cnf && \
     touch /var/log/mysqld-slow.log && \
