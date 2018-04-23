@@ -15,6 +15,7 @@ RUN yum --assumeyes install mysql-server && \
     echo -e 'default-character-set=utf8' >> ~/.my.cnf && \
     echo -e 'pager=less -SFXin' >> ~/.my.cnf && \
     mysql_install_db --user=mysql --rpm && \
+    mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/FCTY/' | mysql mysql && \
     mkdir /docker-entrypoint-initdb.d
 
 VOLUME /var/lib/mysql
