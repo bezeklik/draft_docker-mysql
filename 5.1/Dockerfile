@@ -33,4 +33,4 @@ HEALTHCHECK --interval=10s \
 
 EXPOSE 3306
 
-CMD ["mysqld"]
+CMD ["mysqld_safe", "--user=mysql"]
