@@ -1,6 +1,6 @@
 ![MySQL](https://www.mysql.com/common/logos/logo-mysql-170x115.png)
 
-# Supported tags and respective `Dockerfile` links
+## Supported tags and respective `Dockerfile` links
 
 - `8.0.11`, `8.0`, `8` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/8.0/Dockerfile)
 - `5.7.22`, `5.7`, `5`, `lastest` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.7/Dockerfile)
@@ -8,7 +8,7 @@
 - `5.5.60`, `5.5` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.5/Dockerfile)
 - `5.1.73`, `5.1` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.1/Dockerfile)
 
-# Quick reference
+## Quick reference
 
 - **Where to get help:**
 
@@ -30,17 +30,17 @@ https://github.com/bezeklik/docker-mysql/issues
 
 - **Supported Docker versions:**
 
-# Difference from the official image
+## Difference from the official image
 
-# How to use this image
+## How to use this image
 
-## Usage
+### Usage
 
 ```
 docker run --interactive --tty --name centos bezeklik/mysql bash
 ```
 
-# Docker Environment Variables
+## Docker Environment Variables
 When you create a MySQL Server container, you can configure the MySQL instance by using the `--env` option (`-e` in short) and specifying one or more of the following environment variables.
 
 #### `MYSQL_ALLOW_EMPTY_PASSWORD`
@@ -62,4 +62,4 @@ This variable is only supported for MySQL 5.6 and later.
 
 #### `MYSQL_LOG_CONSOLE`
 
-# License
+## License
