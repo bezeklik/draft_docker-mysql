@@ -9,8 +9,9 @@ LABEL maintainer "Bezeklik"
 RUN yum --assumeyes install mysql-server && \
     sed -i '/\[mysqld\]/a character-set-server=utf8' /etc/my.cnf && \
     sed -i '/\[mysqld\]/a collation-server=utf8_bin' /etc/my.cnf && \
+    sed -i '/\[mysqld\]/a log_output=TABLE,FILE' /etc/my.cnf && \
     sed -i '/\[mysqld\]/a log_slow_queries=ON' /etc/my.cnf && \
-#    sed -i '/\[mysqld\]/a slow_query_log_file=/var/run/mysqld/mysqld-slow.log' /etc/my.cnf && \
+    sed -i '/\[mysqld\]/a slow_query_log_file=/var/run/mysqld/mysqld-slow.log' /etc/my.cnf && \
     sed -i '/\[mysqld\]/a long_query_time=1' /etc/my.cnf && \
     sed -i '/\[mysqld\]/a log_queries_not_using_indexes=ON' /etc/my.cnf && \
     ln -s /var/run/mysqld/mysqld-slow.log /var/log/mysqld-slow.log && \
