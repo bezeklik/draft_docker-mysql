@@ -6,7 +6,7 @@
 # https://coderwall.com/p/fkfaqq/safer-bash-scripts-with-set-euxo-pipefail
 set -eo pipefail
 
-echo "[Entrypoint] MySQL Docker Image 5.6.39"
+echo "[Entrypoint] MySQL Docker Image 5.6.40"
 
 # Fetch value from server config
 # We use mysqld --verbose --help instead of my_print_defaults because the
@@ -116,7 +116,7 @@ if [ "$1" = 'mysqld' ]; then
 
 	fi
 
-	echo "[Entrypoint] Starting MySQL 5.6.39
+	echo "[Entrypoint] Starting MySQL 5.6.40
 
 fi
 
