@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# https://github.com/mysql/mysql-docker/blob/mysql-server/5.7/docker-entrypoint.sh
+# https://github.com/mysql/mysql-docker/blob/mysql-server/genOracleLinux.sh
+# https://github.com/docker-library/mysql/blob/master/5.7/docker-entrypoint.sh
+
 # https://coderwall.com/p/fkfaqq/safer-bash-scripts-with-set-euxo-pipefail
 set -eo pipefail
 
