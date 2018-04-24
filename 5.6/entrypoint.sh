@@ -32,7 +32,7 @@ if [ "$1" = 'mysqld' ]; then
 
 		if [ -z "$MYSQL_ROOT_PASSWORD" -a -z "$MYSQL_ALLOW_EMPTY_PASSWORD" -a -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
 			echo >&2 '[Entrypoint] No password option specified for new database.'
-			echo >&2 '[Entrypoint]   A random onetime password will be generated.'
+			echo >&2 '[Entrypoint] A random onetime password will be generated.'
 			MYSQL_RANDOM_ROOT_PASSWORD=true
 			MYSQL_ONETIME_PASSWORD=true
 		fi
