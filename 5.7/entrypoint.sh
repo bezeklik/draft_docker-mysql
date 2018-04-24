@@ -3,7 +3,7 @@
 # https://coderwall.com/p/fkfaqq/safer-bash-scripts-with-set-euxo-pipefail
 set -eo pipefail
 
-echo "[Entrypoint] MySQL Docker Image 5.7.21"
+echo "[Entrypoint] MySQL Docker Image 5.7.22"
 
 # Fetch value from server config
 # We use mysqld --verbose --help instead of my_print_defaults because the
@@ -29,7 +29,7 @@ if [ "$1" = 'mysqld' ]; then
 
 		if [ -z "$MYSQL_ROOT_PASSWORD" -a -z "$MYSQL_ALLOW_EMPTY_PASSWORD" -a -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
 			echo >&2 '[Entrypoint] No password option specified for new database.'
-			echo >&2 '[Entrypoint]   A random onetime password will be generated.'
+			echo >&2 '[Entrypoint] A random onetime password will be generated.'
 			MYSQL_RANDOM_ROOT_PASSWORD=true
 			MYSQL_ONETIME_PASSWORD=true
 		fi
@@ -44,7 +44,7 @@ if [ "$1" = 'mysqld' ]; then
 		if command -v mysql_ssl_rsa_setup > /dev/null && [ ! -e "${DATADIR}server-key.pem" ]; then
 			echo '[Entrypoint] Initializing certificates'
 			mysql_ssl_rsa_setup --datadir="${DATADIR}"
-      chown mysql:mysql ${DATADIR}*.pem
+			chown mysql:mysql ${DATADIR}*.pem
 			echo '[Entrypoint] Certificates initialized'
 		fi
 
@@ -117,7 +117,7 @@ if [ "$1" = 'mysqld' ]; then
 
 		echo '[Entrypoint] MySQL init process done. Ready for start up.'
 	fi
-	echo "[Entrypoint] Starting MySQL 5.7.21"
+	echo "[Entrypoint] Starting MySQL 5.7.22"
 fi
 
 exec "$@"
