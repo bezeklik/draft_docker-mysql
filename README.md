@@ -6,7 +6,7 @@
 - `5.7.21`, `5.7`, `5`, `lastest` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/Dockerfile)
 - `5.6.39`, `5.6` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.6/Dockerfile)
 - `5.5.59`, `5.5` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.5/Dockerfile)
-- `5.1` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.1/Dockerfile)
+- `5.1.73`, `5.1` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.1/Dockerfile)
 
 # Quick reference
 
