@@ -41,6 +41,7 @@ docker run --interactive --tty --name centos bezeklik/mysql bash
 ```
 
 # Docker Environment Variables
+When you create a MySQL Server container, you can configure the MySQL instance by using the `--env` option (`-e` in short) and specifying one or more of the following environment variables.
 
 #### `MYSQL_ALLOW_EMPTY_PASSWORD`
 
