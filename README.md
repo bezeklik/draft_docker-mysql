@@ -8,6 +8,14 @@
 - `5.5.60`, `5.5` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.5/Dockerfile)
 - `5.1.73`, `5.1` [(*Dockerfile*)](https://github.com/bezeklik/docker-mysql/blob/master/5.1/Dockerfile)
 
+## Difference from the official image
+
+- image based on CentOS
+
+- install via yum repository
+
+- support for MySQL 5.1
+
 ## Quick reference
 
 - **Where to get help:**
@@ -29,8 +37,6 @@ https://github.com/bezeklik/docker-mysql/issues
 - **Source of this description:**
 
 - **Supported Docker versions:**
-
-## Difference from the official image
 
 ## How to use this image
 
