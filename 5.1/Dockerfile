@@ -1,6 +1,11 @@
 FROM centos:6
 LABEL maintainer "Bezeklik"
 
+# http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-install-db.html
+# http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-install-db-problems
+# http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysqld-safe.html
+# http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-tzinfo-to-sql.html
+# https://bugs.mysql.com/bug.php?id=20545
 RUN yum --assumeyes install mysql-server && \
     sed -i '/\[mysqld\]/a character-set-server=utf8' /etc/my.cnf && \
     sed -i '/\[mysqld\]/a collation-server=utf8_bin' /etc/my.cnf && \
@@ -12,11 +17,8 @@ RUN yum --assumeyes install mysql-server && \
     echo -e '[mysql]' >> ~/.my.cnf && \
     echo -e 'default-character-set=utf8' >> ~/.my.cnf && \
     echo -e 'pager=less -SFXin' >> ~/.my.cnf && \
-    # http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-install-db.html
-    # http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-install-db-problems
     mysql_install_db --user=mysql --rpm && \
-    # http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysql-tzinfo-to-sql.html
-    # https://bugs.mysql.com/bug.php?id=20545
+    mysqld_safe & \
     mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/FCTY/' | mysql mysql && \
     mkdir /docker-entrypoint-initdb.d
 
@@ -36,5 +38,4 @@ HEALTHCHECK --interval=10s \
 
 EXPOSE 3306
 
-# http://ftp.nchu.edu.tw/MySQL/doc/refman/5.1/en/mysqld-safe.html
 CMD ["mysqld_safe"]
