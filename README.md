@@ -42,4 +42,23 @@ docker run --interactive --tty --name centos bezeklik/mysql bash
 
 # Docker Environment Variables
 
+#### `MYSQL_ALLOW_EMPTY_PASSWORD`
+
+#### `MYSQL_ROOT_PASSWORD`
+
+#### `MYSQL_RANDOM_ROOT_PASSWORD`
+
+#### `MYSQL_ONETIME_PASSWORD`
+
+#### `MYSQL_DATABASE`
+
+#### `MYSQL_USER`
+
+#### `MYSQL_PASSWORD`
+This variable is only supported for MySQL 5.6 and later.
+
+#### `MYSQL_ROOT_HOST`
+
+#### `MYSQL_LOG_CONSOLE`
+
 # License
