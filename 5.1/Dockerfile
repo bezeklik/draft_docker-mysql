@@ -39,6 +39,8 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 COPY healthcheck.sh /usr/local/bin/
 RUN ln -s /usr/local/bin/healthcheck.sh /healthcheck.sh
+# https://docs.docker.com/engine/reference/builder/#healthcheck
+# The HEALTHCHECK feature was added in Docker 1.12.
 HEALTHCHECK --interval=10s \
             --timeout=3s \
             --start-period=5s \
